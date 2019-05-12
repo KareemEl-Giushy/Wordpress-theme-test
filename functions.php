@@ -21,7 +21,13 @@
   */
 
   function adding_script() {
-
+    // delete the current stored jquery
+    wp_deregister_script('jquery');
+    // re-register the jquery but this time in the footer
+    // wp_register_script(string, string, array, (bool|string|NULL), bool)
+    wp_register_script('jquery', includes_url('/js/jquery/jquery.js'), [], '', true);
+    // enqueue the jquery library again
+    wp_enqueue_script('jquery');
     wp_enqueue_script('popper-js', get_template_directory_uri() . '/js/popper.min.js', [], false, true);
     wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/js/bootstrap.js', ['jquery'], false, true);
     wp_enqueue_script('fontawesome-js', get_template_directory_uri() . '/js/all.js', [], false, true);
