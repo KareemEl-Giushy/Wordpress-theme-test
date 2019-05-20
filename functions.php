@@ -43,3 +43,28 @@
 
   add_action('wp_enqueue_scripts', 'adding_style');
   add_action('wp_enqueue_scripts', 'adding_script');
+
+  /* 
+  ** add custom nav-menu
+  ** by kareem
+  **
+  */
+
+  function custom_nav_menu() {
+    register_nav_menu('Bootstrap-menu', __('myNavigation Bar'));
+
+  }
+
+  add_action('init', 'custom_nav_menu');
+
+  /*
+  ** display the nav bar
+  ** by kareem
+  ** using wp_nav_menu
+  */
+
+  function nav_menu() {
+    // making the nav menu
+    wp_nav_menu();
+  
+  }
